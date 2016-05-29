@@ -29,11 +29,11 @@ function init() {
 }
 
 function queryAPI(currentTabURL) {
-	sendRequest('getsiteinfo/', displayPageInfo);
+	sendRequest('getsiteinfo/?domain=' + encodeURIComponent(currentTabURL), displayPageInfo);
 }
 
 function displayPageInfo(data) {
-	
+	document.write(data['asdf'])
 }
 
 
