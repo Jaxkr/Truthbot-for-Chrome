@@ -3,13 +3,21 @@
 <head>
 	<link rel="stylesheet" href="bootstrap.min.css"/>
 	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
 </head>
 <body style="width: 400px">
-	<div class="container" style="margin: 0; padding: 0;">
-		<div class="panel panel-info" style="margin-bottom: 0;">
-			<div class="panel-heading">Current site ownership</div>
-			<div class="panel-body">
-				
+	<div class="container" style="padding: 2px;">
+		<img src="truthbot.png" style="max-height: 75px; margin-left: auto; margin-right: auto; display: block;">
+		<div id="loading" style="text-align: center;">
+			<h3><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i> Fetching information...</h3>
+
+		</div>
+		<div id="loadedcontent">
+			<div class="panel panel-info" style="margin-bottom: 0;">
+				<div class="panel-heading">Current site ownership</div>
+				<div class="panel-body">
+					<p><span id="sitedomain"><b>Iamawesome.com</b></span> is owned by <span id="parent"><b>Iamawesome test organization</b></span>.</p>
+				</div>
 			</div>
 		</div>
 	</div>

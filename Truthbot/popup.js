@@ -1,5 +1,4 @@
 var api_base_url = 'http://localhost:8000/api/';
-
 function sendRequest(url, callback) {
 	var request = new XMLHttpRequest();
 	request.open('GET', api_base_url + url, true);
@@ -33,6 +32,10 @@ function queryAPI(currentTabURL) {
 }
 
 function displayPageInfo(data) {
+	console.log(data);
+	document.getElementById('loadedcontent').style.display = 'block';
+	document.getElementById('loading').style.display = 'none';
+
 }
 
 
