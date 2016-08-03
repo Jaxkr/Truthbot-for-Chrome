@@ -40,7 +40,7 @@ function displayPageInfo(data) {
 		console.log(data);
 		var sentence = '<b>' + data['domain'] + '</b> is part of <b><a target="_blank" href="' + site_base_url + 'organizations/organization/' + data['organization'][0]['pk'] + '">' + data['organization'][0]['fields']['name'] + '</a></b>';
 		for (var i = 0; i < data['parents'].length; i++) {
-			sentence += ', which is owned by <b><a target="_blank" href="' + data['parents'][i][0]['pk'] + '">' +  data['parents'][i][0]['fields']['name'] + '</a></b>';
+			sentence += ', which is owned by <b><a target="_blank" href="' + site_base_url + 'organizations/organization/' + data['parents'][i][0]['pk'] + '">' +  data['parents'][i][0]['fields']['name'] + '</a></b>';
 		}
 		sentence += '.'
 		document.getElementById('ownership').innerHTML = sentence;
