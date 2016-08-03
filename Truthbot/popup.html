@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="bootstrap.min.css"/>
+	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
+</head>
+<body style="width: 400px">
+	<div class="container">
+		<img src="truthbot.png" class="logo">
+		<div id="loadingowners" class="loading">
+			<h4><i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i> Fetching information...</h4>
+		</div>
+		<div id="loadedcontent">
+			<div class="panel panel-info">
+				<div class="panel-heading">Current site ownership</div>
+				<div class="panel-body">
+					<span id="ownership"></span>
+				</div>
+			</div>
+		</div>
+		<div id="noownerinfo">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					We don't have any info on the ownership of this website! If it's a news-site, this shouldn't happen. Please refer to <a href="">this page</a> if you
+					would like to add this site to our database.
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="popup.js"></script>
+</body>
+</html>
