@@ -26,6 +26,7 @@ var currentTabURL;
 function init() {
 	chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
 		currentTabURL = tabs[0].url;
+		document.getElementById('findinfolink').setAttribute('href', site_base_url + 'organizations/orgscrape?url=' + currentTabURL);
 		queryAPI(currentTabURL);
 		sendRequest('getposts/', displayPosts)
 	});
