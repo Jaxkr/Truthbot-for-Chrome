@@ -3,7 +3,6 @@ var site_base_url = 'http://localhost:8000/';
 
 function sendRequest(url, callback) {
 	var request = new XMLHttpRequest();
-	console.log('queried: ' + api_base_url + url);
 	request.open('GET', api_base_url + url, true);
 
 	request.onload = function() {
@@ -27,17 +26,27 @@ var currentTabURL;
 function init() {
 	chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
 		currentTabURL = tabs[0].url;
-		queryAPI(currentTabURL)
+		queryAPI(currentTabURL);
+		sendRequest('getposts/', displayPosts)
 	});
 }
 
 function queryAPI(currentTabURL) {
-	sendRequest('orginfo/?url=' + encodeURIComponent(currentTabURL), displayPageInfo);}
+	sendRequest('orginfo/?url=' + encodeURIComponent(currentTabURL), displayPageInfo);
+}
+
+function displayPosts(data) {
+	console.log('wo');
+	var list_items = '';
+	for (var i = 0; i < data.length; i++) {
+		list_items += '<a target="_blank" href="' + site_base_url + 'news/' + data[i]['slug'] + '" class="list-group-item"><b>' + data[i]['title'] + '</b><br>' + data[i]['comment_count'] + ' comment(s)' + '</a>';
+	}
+	document.getElementById('newslist').innerHTML = list_items;
+}
 
 function displayPageInfo(data) {
 	if (data['status'] == 'success') {
 		has_owner_data = true;
-		console.log(data);
 		var sentence = '<b>' + data['domain'] + '</b> is part of <b><a target="_blank" href="' + site_base_url + 'organizations/organization/' + data['organization'][0]['pk'] + '">' + data['organization'][0]['fields']['name'] + '</a></b>';
 		for (var i = 0; i < data['parents'].length; i++) {
 			sentence += ', which is owned by <b><a target="_blank" href="' + site_base_url + 'organizations/organization/' + data['parents'][i][0]['pk'] + '">' +  data['parents'][i][0]['fields']['name'] + '</a></b>';
