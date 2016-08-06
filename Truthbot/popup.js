@@ -1,5 +1,5 @@
 var api_base_url = 'https://www.truthbot.org/api/';
-var site_base_url = 'https://www.truthbot.org:8000/';
+var site_base_url = 'https://www.truthbot.org/';
 
 function sendRequest(url, callback) {
 	var request = new XMLHttpRequest();
